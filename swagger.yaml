@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: API documentation
+  version: 1.0.0
+paths:
+  /:
+    get:
+      summary: returns a greeting
+      responses:
+        200:
+          description: greeting response
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Hello there!
