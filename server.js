@@ -15,8 +15,27 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 //api-docs is an endpoint where you can view your APIs documentation. 
 
+let users = [];
+
+//root endpoint
 app.get('/', (req, res)=>{
     res.send("Hello World!")
+})
+
+//Creates a new user
+app.post('/users', (req, res)=>{
+    const user = {
+        id: user.length + 1,
+        name: req.body.name,
+        email: req.body.email
+
+    }
+    users.push(user);
+    res.status(201).send(user);
+})
+
+app.get('/users', (req, res)=>{
+    res.send(users);
 })
 
 app.listen(port, ()=>{
